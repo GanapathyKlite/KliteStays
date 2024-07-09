@@ -15,9 +15,9 @@ class medoo
 	// For MySQL, MSSQL, Sybase
 	protected $server = 'localhost';
 
-	protected $username = 'admin';
+	protected $username = 'root';
 
-	protected $password = 'nalinee';
+	protected $password = '';
 	
 		//protected $username = 'root';
 
@@ -32,7 +32,7 @@ class medoo
 	protected $charset = 'utf8';
 
 	//protected $database_name = 'buddiest_b2btraveladmin';
-	protected $database_name = 'hotelbud_technologies';
+	protected $database_name = 'klitestays';
 
 	protected $option = array();
 

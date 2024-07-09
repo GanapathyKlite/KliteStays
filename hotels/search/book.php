@@ -6,8 +6,9 @@ $currentpage="hotelbooking";
 include("../../include/header.php");
 //print_r($_GET);die;
 $_GET['guest']=json_decode($_GET['guest'],true);
-error_reporting(0);
-$city_name = isset($details[0]['name'])?$details[0]['name']:''.', '.isset($details[0]['state'])?$details[0]['state']:'';
+error_reporting(E_ALL);
+$city_name = (isset($details[0]['name']) ? $details[0]['name'] : '') . 
+             (isset($details[0]['state']) ? ', ' . $details[0]['state'] : '');
 $city_id = isset($details[0]['id_city'])?$details[0]['id_city']:'';
 $_SESSION['3rdpage']="https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 

@@ -6,7 +6,7 @@ include_once 'common_functions.php';
 include_once 'config-keyspayment.php';
 
 global $database;
-$database = $database_hotel =$database_car = new medoo('hotelbud_technologies');
+$database = $database_hotel =$database_car = new medoo('klitestays');
 //$database_bus = new medoo('buddyadm_bus');
 //$database_flight = new medoo('buddyadm_flight');
 
