@@ -360,7 +360,7 @@ aside .byt_search_widget .gradient-button	{width:100%;}
 .destination .suggest-results {background:#fff;top:31px !important;}
 
 /* 06 Header */
-.header 	{background:#fff;margin:0 0 20px;width:100%;position:relative;z-index:9;border-bottom: 4px solid #ccc;}
+.header 	{background:#fff;margin:0 0 20px;width:100%;position:relative;z-index:9;}
 .page-template-byt_home .header,
 .page-template-byt_home-php .header {margin:0;}
 

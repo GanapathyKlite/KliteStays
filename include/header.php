@@ -46,7 +46,6 @@ if ($REDIRECT_URIPART != '') {
   $desc = $content_pages_static[0]['txtDescription'];
   $key = $content_pages_static[0]['txtKeywords'];
   $title = $content_pages_static[0]['txtTitle'];
-
 }
 $destination = $country = '';
 $search = $search_remove = "";
@@ -104,9 +103,7 @@ if (isset($_GET['city'])) {
     $star = explode('-', $_GET['star'])[0];
     if (($star == 'cheap') || ($star == 'budget')) {
       $star = explode('-', $_GET['star'])[1];
-
     }
-
   }
   if (isset($_GET['s_l_d'])) {
 
@@ -121,11 +118,9 @@ if (isset($_GET['city'])) {
     $h_l_d = explode('-near-', explode('-in-', $_GET['h_l_d'])[0]);
     $_GET['hotel_type'] = $hotel_type = $h_l_d[0];
     $_GET['landmark'] = $landmark = $h_l_d[1];
-
   }
   if (isset($_GET['hotel_type'])) {
     $hotel_type = $_GET['hotel_type'];
-
   }
 
   $q = "SELECT c.*,s.name as state, co.name as country from ps_city c left join ps_state s on(c.id_state=s.id_state) left join  ps_country_lang co on(co.id_country=c.id_country) where c.name like '%" . $destination . "%' and status=0";
@@ -137,10 +132,8 @@ if (isset($_GET['city'])) {
       $str = 'Budget and Cheap';
     }
     $search_remove = $search_Add = $search = trim(implode(' ', explode('-', $str)));
-
   } else if ($_GET['hotel_type']) {
     $search_remove = $search_Add = $search = trim(implode(' ', explode('-', $_GET['hotel_type'])));
-
   }
 
   $pos = strpos($search, 'hotels');
@@ -166,7 +159,6 @@ if (isset($_GET['city'])) {
     $description = ucwords($hotel_type) . ' ' . ucwords($property_name) . ucwords($search_Add) . " in " . ucwords($destination) . " – Best " . $selStarRating . " in " . ucwords($destination) . " you can Get upto 70% off for Each Booking  , Book  Hotel " . ucwords($property_name) . " at Klitestays.com";
     $keywords = ucwords($hotel_type) . " " . ucwords($property_name) . " , " . ucwords($property_name) . " " . ucwords($hotel_type) . " in " . ucwords($destination) . ", " . ucwords($property_name) . ", " . $selStarRating . " " . $property_name . "  , " . ucwords($hotel_type) . " " . ucwords($property_name) . " tariff, " . ucwords($hotel_type) . " " . ucwords($property_name) . " " . $landmark . ", " . ucwords($hotel_type) . " " . ucwords($property_name) . " " . $address . " , " . ucwords($hotel_type) . " " . ucwords($property_name) . " Deals";
   }
-
 } else {
   $link = $_SERVER['PHP_SELF'];
   $link_array = explode('/', $link);
@@ -175,10 +167,8 @@ if (isset($_GET['city'])) {
 
   if ($pagename[0] == 'contact') {
     $res = $database->query("select * from ps_page_contact where action=''");
-
   } else if ($pagename[0] == 'index') {
     $res = $database->query("select * from ps_page_home where action=''");
-
   } else if ($pagename[0] == 'home') {
     $res = $database->query("select * from ps_page_home where action=''");
   } else {
@@ -192,8 +182,6 @@ if (isset($_GET['city'])) {
 
     $key = $contact[0]['txtKeywords'];
   }
-
-
 }
 if (isset($_GET['from_seo']) && $_GET['from_seo'] == 1) {
 
@@ -244,11 +232,10 @@ if (!defined('SITENAME'))
   } else if ($search != '') {
 
     $tit = ucwords($search) . ' in ' . ucwords($destination) . $landmarks . ' -Best Deal Get upto to 70% off Online Booking Klitestays.com';
-
   } else {
     $tit = 'Klitestays - A Leading Online Hotel Booking Portal';
   }
- 
+
   // if ($title != '') {
   //   $tit = $title;
   // }
@@ -298,8 +285,7 @@ if (!defined('SITENAME'))
   <script src="<?php echo $root_dir; ?>js/script_createcustomer.js"></script>
   <script src="<?php echo $root_dir; ?>js/alertify.js"></script>
   <script src="<?php echo $root_dir; ?>js/script.js"></script>
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -321,8 +307,7 @@ if (!defined('SITENAME'))
 
   <link rel="stylesheet" href="<?php echo $root_dir; ?>css/prettyPhoto.min.css">
   <link rel="stylesheet" href="<?php echo $root_dir; ?>css/owl.theme.default.min.css">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css" />
 
 
   <link href="<?php echo $root_dir; ?>css/ss.css" rel="stylesheet">
@@ -330,22 +315,20 @@ if (!defined('SITENAME'))
 
   <link href="<?php echo $root_dir; ?>css/style.css" rel="stylesheet">
   <script type='text/javascript' src='<?php echo $root_dir; ?>js/scripts.js'></script>
-   <?php if (isset($payment_page)&&$payment_page) { ?>
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-   <?php }?>
+  <?php if (isset($payment_page) && $payment_page) { ?>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <?php } ?>
 
 </head>
 
-<body data-rsssl=1
-  class="home page-template page-template-byt_home page-template-byt_home-php page page-id-477 mega-menu-primary-menu">
+<body data-rsssl=1 class="home page-template page-template-byt_home page-template-byt_home-php page page-id-477 mega-menu-primary-menu">
   <input type="hidden" value="<?php echo $root_dir; ?>" id="root_dir">
 
   <!--header-->
   <header class="header" role="banner">
     <div class="wrap">
       <!--logo-->
-      <div class="logo"><a href="<?php echo $root_dir; ?>"><img src="<?php echo $root_dir; ?>staysinn.png"
-            alt="Company Name" /></a></div>
+      <div class="logo"><a href="<?php echo $root_dir; ?>"><img src="<?php echo $root_dir; ?>KliteStays_Logo.svg" alt="Company Name" /></a></div>
       <!--//logo-->
       <!--ribbon-->
       <div class="ribbon section_bg">
@@ -354,54 +337,30 @@ if (!defined('SITENAME'))
 
           <?php
           if (isset($_SESSION['authtnid']) && $_SESSION['authtnid'] != '0') { ?>
-          
             <?php echo $_SESSION['first_name']; ?>
-
-
             <ul class="profile-nav">
               <li class="active"><a href="javascript:void(0);" title="My Account">My Account</a></li>
 
 
               <li>
-                <a class=" fn login_lightbox toggle_lightbox" href="javascript:void(0)"
-                  style="margin-left: -10px;margin-right: -6px;">customer ID
+                <a class=" fn login_lightbox toggle_lightbox" href="javascript:void(0)" style="margin-left: -10px;margin-right: -6px;">customer ID
                   <?php echo $_SESSION['reference']; ?>
                 </a>
               </li>
               <li>
-                <a class=" fn login_lightbox toggle_lightbox" href="<?php echo $root_dir; ?>customerdashboard/profile.php"
-                  style="margin-left: -10px;">Dashboard<span
-                    class="glyphicon glyphicon-dashboard pull-right glyph_dash"></span></a>
+                <a class=" fn login_lightbox toggle_lightbox" href="<?php echo $root_dir; ?>customerdashboard/profile.php" style="margin-left: -10px;">Dashboard<span class="glyphicon glyphicon-dashboard pull-right glyph_dash"></span></a>
               </li>
               <li>
-                <a class=" fn login_lightbox toggle_lightbox" href="<?php echo $root_dir; ?>logout.php">Logout<span
-                    class="glyphicon glyphicon-log-out pull-right glyph_dash"></span></a>
+                <a class=" fn login_lightbox toggle_lightbox" href="<?php echo $root_dir; ?>logout.php">Logout<span class="glyphicon glyphicon-log-out pull-right glyph_dash"></span></a>
               </li>
             </ul>
-
-
-
-            <?php
-
-
+          <?php
           } else { ?>
-
             <!--  <li><a class="fn register_lightbox toggle_lightbox" href="javascript:void(0);" title="Register">Register</a></li>
        <li><a class="fn Dashboard_lightbox toggle_lightbox" href="javascript:void(0);" title="Dashboard">Dashboard</a></li> -->
             <!--   <li><a class="fn Logout_lightbox toggle_lightbox" href="javascript:void(0);" title="Logout">Logout</a></li> -->
             <!-- <li><a class="fn Customer_id_lightbox toggle_lightbox" href="javascript:void(0);" title="Customer Id">Customer Id</a></li> -->
-
-
             <a class="login_signup" data-toggle="modal" href="#myModal" title="Login">Log In / Sign Up</a>
-
-
-
-
-
-
-
-
-
           <?php }
           ?>
 
@@ -422,8 +381,7 @@ if (!defined('SITENAME'))
                            <input type="submit" id="searchsubmit" value="" name="searchsubmit" style="background: transparent!important;">
                         </form> -->
 
-        <a href="<?php echo $root_dir; ?>hotel_signup.php" style="padding: 7px 18px;font-size: 15px;"
-          class="text_color">Hoteliers ? SignUp</a>
+        <a href="<?php echo $root_dir; ?>hotel_signup.php" style="padding: 7px 18px;font-size: 15px;" class="text_color">Hoteliers ? SignUp</a>
       </div>
       <!--//search-->
       <!--contact-->
@@ -433,22 +391,10 @@ if (!defined('SITENAME'))
       </div>
       <!--//contact-->
     </div>
-    <!--primary navigation-->
-    <!-- <div id="mega-menu-wrap-primary-menu" class="mega-menu-wrap">
-                     <div class="mega-menu-toggle" tabindex="0">
-                        <div class='mega-toggle-block mega-menu-toggle-block mega-toggle-block-left mega-toggle-block-1' id='mega-toggle-block-1'></div>
-                     </div>
 
-                     <ul id="mega-menu-primary-menu" class="mega-menu mega-menu-horizontal mega-no-js" data-event="hover_intent" data-effect="disabled" data-effect-speed="200" data-second-click="close" data-document-click="collapse" data-vertical-behaviour="standard" data-breakpoint="1040" data-unbind="true">
-                        <li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-487' id='mega-menu-item-487'><a class="mega-menu-link" href="search.php">Hotels</a></li>
-
-                        
-                     </ul>
-                  </div> -->
-    <!--//primary navigation-->
     <div class="clearfix"></div>
 
-    <div class="container">
+    <!-- <div class="container">
       <div class="col-sm-2"></div>
       <div class="col-sm-10">
         <ul class="menu_newbus col-sm-12">
@@ -458,10 +404,7 @@ if (!defined('SITENAME'))
           <li><a href=""><i class="fa fa-car" aria-hidden="true"></i>Car</a></li>
         </ul>
       </div>
-
-
-
-    </div>
+    </div> -->
 
 
 
@@ -512,8 +455,8 @@ if (!defined('SITENAME'))
   <!--  -->
 
   <script type="text/javascript">
-    $(document).ready(function () {
-      $("#closeSignIn").click(function () {
+    $(document).ready(function() {
+      $("#closeSignIn").click(function() {
         $("#myModal").modal('hide');
       });
     });

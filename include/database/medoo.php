@@ -7,19 +7,19 @@
  * Copyright 2013, Angel Lai
  * Released under the MIT license
  */
- //require_once 'spoof.php';
+//require_once 'spoof.php';
 class medoo
-{   
+{
 	protected $database_type = 'mysql';
-	
+
 	// For MySQL, MSSQL, Sybase
 	protected $server = 'localhost';
 
 	protected $username = 'root';
 
 	protected $password = '';
-	
-		//protected $username = 'root';
+
+	//protected $username = 'root';
 
 	//protected $password = '';
 
@@ -44,21 +44,14 @@ class medoo
 		try {
 			$commands = array();
 
-			if (is_string($options))
-			{
-				if (strtolower($this->database_type) == 'sqlite')
-				{
+			if (is_string($options)) {
+				if (strtolower($this->database_type) == 'sqlite') {
 					$this->database_file = $options;
-				}
-				else
-				{
+				} else {
 					$this->database_name = $options;
 				}
-			}
-			else
-			{
-				foreach ($options as $option => $value)
-				{
+			} else {
+				foreach ($options as $option => $value) {
 					$this->$option = $value;
 				}
 			}
@@ -68,15 +61,13 @@ class medoo
 			if (
 				isset($this->port) &&
 				is_int($this->port * 1)
-			)
-			{
+			) {
 				$port = $this->port;
 			}
 
 			$set_charset = "SET NAMES '" . $this->charset . "'";
 
-			switch ($type)
-			{
+			switch ($type) {
 				case 'mariadb':
 					$type = 'mysql';
 
@@ -114,22 +105,20 @@ class medoo
 
 					break;
 			}
-$uname=$this->username;
-$upass=$this->password;
+			$uname = $this->username;
+			$upass = $this->password;
 
 			$this->pdo = new PDO(
-				$dsn, 
+				$dsn,
 				$uname,
 				$upass,
 				$this->option
 			);
 
-			foreach ($commands as $value)
-			{
-				$this->pdo->exec($value);	
+			foreach ($commands as $value) {
+				$this->pdo->exec($value);
 			}
-		}
-		catch (PDOException $e) {
+		} catch (PDOException $e) {
 			throw new Exception($e->getMessage());
 		}
 	}
@@ -137,7 +126,7 @@ $upass=$this->password;
 	public function query($query)
 	{
 		$this->queryString = $query;
-		
+
 		return $this->pdo->query($query);
 	}
 
@@ -160,32 +149,26 @@ $upass=$this->password;
 
 	protected function column_push($columns)
 	{
-		if ($columns == '*')
-		{
+		if ($columns == '*') {
 			return $columns;
 		}
 
-		if (is_string($columns))
-		{
+		if (is_string($columns)) {
 			$columns = array($columns);
 		}
 
 		$stack = array();
 
-		foreach ($columns as $key => $value)
-		{
+		foreach ($columns as $key => $value) {
 			preg_match('/([a-zA-Z0-9_\-\.]*)\s*\(([a-zA-Z0-9_\-]*)\)/i', $value, $match);
 
 			if (
 				isset($match[1]) &&
 				isset($match[2])
-			)
-			{
-				array_push($stack, $this->column_quote( $match[1] ) . ' AS ' . $this->column_quote( $match[2] ));
-			}
-			else
-			{
-				array_push($stack, $this->column_quote( $value ));
+			) {
+				array_push($stack, $this->column_quote($match[1]) . ' AS ' . $this->column_quote($match[2]));
+			} else {
+				array_push($stack, $this->column_quote($value));
 			}
 		}
 
@@ -196,8 +179,7 @@ $upass=$this->password;
 	{
 		$temp = array();
 
-		foreach ($array as $value)
-		{
+		foreach ($array as $value) {
 			$temp[] = is_int($value) ? $value : $this->pdo->quote($value);
 		}
 
@@ -208,8 +190,7 @@ $upass=$this->password;
 	{
 		$haystack = array();
 
-		foreach ($data as $value)
-		{
+		foreach ($data as $value) {
 			$haystack[] = '(' . $this->data_implode($value, $conjunctor) . ')';
 		}
 
@@ -220,32 +201,23 @@ $upass=$this->password;
 	{
 		$wheres = array();
 
-		foreach ($data as $key => $value)
-		{
+		foreach ($data as $key => $value) {
 			if (
 				($key == 'AND' || $key == 'OR') &&
 				is_array($value)
-			)
-			{
+			) {
 				$wheres[] = 0 !== count(array_diff_key($value, array_keys(array_keys($value)))) ?
 					'(' . $this->data_implode($value, ' ' . $key) . ')' :
 					'(' . $this->inner_conjunct($value, ' ' . $key, $conjunctor) . ')';
-			}
-			else
-			{
+			} else {
 				preg_match('/([\w\.]+)(\[(\>|\>\=|\<|\<\=|\!|\<\>)\])?/i', $key, $match);
-				if (isset($match[3]))
-				{
-					if ($match[3] == '')
-					{
+				if (isset($match[3])) {
+					if ($match[3] == '') {
 						$wheres[] = $this->column_quote($match[1]) . ' ' . $match[3] . '= ' . $this->quote($value);
-					}
-					elseif ($match[3] == '!')
-					{
+					} elseif ($match[3] == '!') {
 						$column = $this->column_quote($match[1]);
-						
-						switch (gettype($value))
-						{
+
+						switch (gettype($value)) {
 							case 'NULL':
 								$wheres[] = $column . ' IS NOT NULL';
 								break;
@@ -263,53 +235,34 @@ $upass=$this->password;
 								$wheres[] = $column . ' != ' . $this->quote($value);
 								break;
 						}
-					}
-					else
-					{
-						if ($match[3] == '<>')
-						{
-							if (is_array($value))
-							{
-								if (is_numeric($value[0]) && is_numeric($value[1]))
-								{
+					} else {
+						if ($match[3] == '<>') {
+							if (is_array($value)) {
+								if (is_numeric($value[0]) && is_numeric($value[1])) {
 									$wheres[] = $this->column_quote($match[1]) . ' BETWEEN ' . $value[0] . ' AND ' . $value[1];
-								}
-								else
-								{
+								} else {
 									$wheres[] = $this->column_quote($match[1]) . ' BETWEEN ' . $this->quote($value[0]) . ' AND ' . $this->quote($value[1]);
 								}
 							}
-						}
-						else
-						{
-							if (is_numeric($value))
-							{
+						} else {
+							if (is_numeric($value)) {
 								$wheres[] = $this->column_quote($match[1]) . ' ' . $match[3] . ' ' . $value;
-							}
-							else
-							{
+							} else {
 								$datetime = strtotime($value);
 
-								if ($datetime)
-								{
+								if ($datetime) {
 									$wheres[] = $this->column_quote($match[1]) . ' ' . $match[3] . ' ' . $this->quote(date('Y-m-d H:i:s', $datetime));
 								}
 							}
 						}
 					}
-				}
-				else
-				{
-					if (is_int($key))
-					{
+				} else {
+					if (is_int($key)) {
 						$wheres[] = $this->quote($value);
-					}
-					else
-					{
+					} else {
 						$column = $this->column_quote($match[1]);
 
-						switch (gettype($value))
-						{
+						switch (gettype($value)) {
 							case 'NULL':
 								$wheres[] = $column . ' IS NULL';
 								break;
@@ -339,102 +292,77 @@ $upass=$this->password;
 	{
 		$where_clause = '';
 
-		if (is_array($where))
-		{
+		if (is_array($where)) {
 			$single_condition = array_diff_key($where, array_flip(
 				explode(' ', 'AND OR GROUP ORDER HAVING LIMIT LIKE MATCH')
 			));
 
-			if ($single_condition != array())
-			{
+			if ($single_condition != array()) {
 				$where_clause = ' WHERE ' . $this->data_implode($single_condition, '');
 			}
-			if (isset($where['AND']))
-			{
+			if (isset($where['AND'])) {
 				$where_clause = ' WHERE ' . $this->data_implode($where['AND'], ' AND');
 			}
-			if (isset($where['OR']))
-			{
+			if (isset($where['OR'])) {
 				$where_clause = ' WHERE ' . $this->data_implode($where['OR'], ' OR');
 			}
-			if (isset($where['LIKE']))
-			{
+			if (isset($where['LIKE'])) {
 				$like_query = $where['LIKE'];
-				if (is_array($like_query))
-				{
+				if (is_array($like_query)) {
 					$is_OR = isset($like_query['OR']);
 
-					if ($is_OR || isset($like_query['AND']))
-					{
+					if ($is_OR || isset($like_query['AND'])) {
 						$connector = $is_OR ? 'OR' : 'AND';
 						$like_query = $is_OR ? $like_query['OR'] : $like_query['AND'];
-					}
-					else
-					{
+					} else {
 						$connector = 'AND';
 					}
 
 					$clause_wrap = array();
-					foreach ($like_query as $column => $keyword)
-					{
-						if (is_array($keyword))
-						{
-							foreach ($keyword as $key)
-							{
+					foreach ($like_query as $column => $keyword) {
+						if (is_array($keyword)) {
+							foreach ($keyword as $key) {
 								$clause_wrap[] = $this->column_quote($column) . ' LIKE ' . $this->quote('%' . $key . '%');
 							}
-						}
-						else
-						{
+						} else {
 							$clause_wrap[] = $this->column_quote($column) . ' LIKE ' . $this->quote('%' . $keyword . '%');
 						}
 					}
 					$where_clause .= ($where_clause != '' ? ' AND ' : ' WHERE ') . '(' . implode($clause_wrap, ' ' . $connector . ' ') . ')';
 				}
 			}
-			if (isset($where['MATCH']))
-			{
+			if (isset($where['MATCH'])) {
 				$match_query = $where['MATCH'];
-				if (is_array($match_query) && isset($match_query['columns']) && isset($match_query['keyword']))
-				{
+				if (is_array($match_query) && isset($match_query['columns']) && isset($match_query['keyword'])) {
 					$where_clause .= ($where_clause != '' ? ' AND ' : ' WHERE ') . ' MATCH ("' . str_replace('.', '"."', implode($match_query['columns'], '", "')) . '") AGAINST (' . $this->quote($match_query['keyword']) . ')';
 				}
 			}
-			if (isset($where['GROUP']))
-			{
+			if (isset($where['GROUP'])) {
 				$where_clause .= ' GROUP BY ' . $this->column_quote($where['GROUP']);
 			}
-			if (isset($where['ORDER']))
-			{
+			if (isset($where['ORDER'])) {
 				preg_match('/(^[a-zA-Z0-9_\-\.]*)(\s*(DESC|ASC))?/', $where['ORDER'], $order_match);
 
 				$where_clause .= ' ORDER BY "' . str_replace('.', '"."', $order_match[1]) . '" ' . (isset($order_match[3]) ? $order_match[3] : '');
 
-				if (isset($where['HAVING']))
-				{
+				if (isset($where['HAVING'])) {
 					$where_clause .= ' HAVING ' . $this->data_implode($where['HAVING'], '');
 				}
 			}
-			if (isset($where['LIMIT']))
-			{
-				if (is_numeric($where['LIMIT']))
-				{
+			if (isset($where['LIMIT'])) {
+				if (is_numeric($where['LIMIT'])) {
 					$where_clause .= ' LIMIT ' . $where['LIMIT'];
 				}
 				if (
 					is_array($where['LIMIT']) &&
 					is_numeric($where['LIMIT'][0]) &&
 					is_numeric($where['LIMIT'][1])
-				)
-				{
+				) {
 					$where_clause .= ' LIMIT ' . $where['LIMIT'][0] . ',' . $where['LIMIT'][1];
 				}
 			}
-		}
-		else
-		{
-			if ($where != null)
-			{
+		} else {
+			if ($where != null) {
 				$where_clause .= ' ' . $where;
 			}
 		}
@@ -447,8 +375,7 @@ $upass=$this->password;
 		$table = '"' . $table . '"';
 		$join_key = is_array($join) ? array_keys($join) : null;
 
-		if (strpos($join_key[0], '[') !== false)
-		{
+		if (strpos($join_key[0], '[') !== false) {
 			$table_join = array();
 
 			$join_array = array(
@@ -458,39 +385,31 @@ $upass=$this->password;
 				'><' => 'INNER'
 			);
 
-			foreach($join as $sub_table => $relation)
-			{
+			foreach ($join as $sub_table => $relation) {
 				preg_match('/(\[(\<|\>|\>\<|\<\>)\])?([a-zA-Z0-9_\-]*)/', $sub_table, $match);
 
-				if ($match[2] != '' && $match[3] != '')
-				{
-					if (is_string($relation))
-					{
+				if ($match[2] != '' && $match[3] != '') {
+					if (is_string($relation)) {
 						$relation = 'USING ("' . $relation . '")';
 					}
 
-					if (is_array($relation))
-					{
+					if (is_array($relation)) {
 						// For ['column1', 'column2']
-						if (isset($relation[0]))
-						{
+						if (isset($relation[0])) {
 							$relation = 'USING ("' . implode($relation, '", "') . '")';
 						}
 						// For ['column1' => 'column2']
-						else
-						{
+						else {
 							$relation = 'ON ' . $table . '."' . key($relation) . '" = "' . $match[3] . '"."' . current($relation) . '"';
 						}
 					}
 
-					$table_join[] = $join_array[ $match[2] ] . ' JOIN "' . $match[3] . '" ' . $relation;
+					$table_join[] = $join_array[$match[2]] . ' JOIN "' . $match[3] . '" ' . $relation;
 				}
 			}
 
 			$table .= ' ' . implode($table_join, ' ');
-		}
-		else
-		{
+		} else {
 			$where = $columns;
 			$columns = $join;
 		}
@@ -507,18 +426,15 @@ $upass=$this->password;
 		$lastId = array();
 
 		// Check indexed or associative array
-		if (!isset($datas[0]))
-		{
+		if (!isset($datas[0])) {
 			$datas = array($datas);
 		}
 
-		foreach ($datas as $data)
-		{
-			$keys = '`'.implode('`, `', array_keys($data)).'`';
+		foreach ($datas as $data) {
+			$keys = '`' . implode('`, `', array_keys($data)) . '`';
 			$values = array();
 
-			foreach ($data as $key => $value)
-			{
+			foreach ($data as $key => $value) {
 				$values[] = $this->quote($value);
 				//break;
 				/*switch (gettype($value))
@@ -543,42 +459,33 @@ $upass=$this->password;
 						break;
 				}*/
 			}
-	
 
-			$this->exec('INSERT INTO ' . $table . ' (' . $keys . ') VALUES (' . implode(', ',$values) . ')');
-			
+
+			$this->exec('INSERT INTO ' . $table . ' (' . $keys . ') VALUES (' . implode(', ', $values) . ')');
+
 			$lastId[] = $this->pdo->lastInsertId();
 		}
 
-		return count($lastId) > 1 ? $lastId : $lastId[ 0 ];
+		return count($lastId) > 1 ? $lastId : $lastId[0];
 	}
 
 	public function update($table, $data, $where = null)
 	{
 		$fields = array();
 
-		foreach ($data as $key => $value)
-		{
-			if (is_array($value))
-			{
+		foreach ($data as $key => $value) {
+			if (is_array($value)) {
 				$fields[] = $this->column_quote($key) . '=' . $this->quote(serialize($value));
-			}
-			else
-			{
+			} else {
 				preg_match('/([\w]+)(\[(\+|\-|\*|\/)\])?/i', $key, $match);
-				if (isset($match[3]))
-				{
-					if (is_numeric($value))
-					{
+				if (isset($match[3])) {
+					if (is_numeric($value)) {
 						$fields[] = $this->column_quote($match[1]) . ' = ' . $this->column_quote($match[1]) . ' ' . $match[3] . ' ' . $value;
 					}
-				}
-				else
-				{
+				} else {
 					$column = $this->column_quote($key);
 
-					switch (gettype($value))
-					{
+					switch (gettype($value)) {
 						case 'NULL':
 							$fields[] = $column . ' = NULL';
 							break;
@@ -607,35 +514,26 @@ $upass=$this->password;
 
 	public function replace($table, $columns, $search = null, $replace = null, $where = null)
 	{
-		if (is_array($columns))
-		{
+		if (is_array($columns)) {
 			$replace_query = array();
 
-			foreach ($columns as $column => $replacements)
-			{
-				foreach ($replacements as $replace_search => $replace_replacement)
-				{
+			foreach ($columns as $column => $replacements) {
+				foreach ($replacements as $replace_search => $replace_replacement) {
 					$replace_query[] = $column . ' = REPLACE("' . $column . '", ' . $this->quote($replace_search) . ', ' . $this->quote($replace_replacement) . ')';
 				}
 			}
 			$replace_query = implode(', ', $replace_query);
 			$where = $search;
-		}
-		else
-		{
-			if (is_array($search))
-			{
+		} else {
+			if (is_array($search)) {
 				$replace_query = array();
 
-				foreach ($search as $replace_search => $replace_replacement)
-				{
+				foreach ($search as $replace_search => $replace_replacement) {
 					$replace_query[] = $columns . ' = REPLACE("' . $columns . '", ' . $this->quote($replace_search) . ', ' . $this->quote($replace_replacement) . ')';
 				}
 				$replace_query = implode(', ', $replace_query);
 				$where = $replace;
-			}
-			else
-			{
+			} else {
 				$replace_query = $columns . ' = REPLACE("' . $columns . '", ' . $this->quote($search) . ', ' . $this->quote($replace) . ')';
 			}
 		}
@@ -645,8 +543,7 @@ $upass=$this->password;
 
 	public function get($table, $columns, $where = null)
 	{
-		if (!isset($where))
-		{
+		if (!isset($where)) {
 			$where = array();
 		}
 		$where['LIMIT'] = 1;
@@ -707,4 +604,3 @@ $upass=$this->password;
 		);
 	}
 }
-?>
