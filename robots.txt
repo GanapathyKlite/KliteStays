@@ -1,0 +1,16 @@
+User-agent: *Allow:SITEMAP: https://klitestays.com/sitemap.xml
+User-agent: *Disallow: /customerdashboard/
+Disallow: /register.php
+Disallow: /logout.php
+Disallow: /cron_script.php
+Disallow: /custinfo.php
+Disallow: /customerpasswdchg.php
+Disallow: /mods_functions_manager_adashpasswdupdated.php
+Disallow: /mods_functions_manager_createcustomer.php
+Disallow: /mods_functions_manager_login.php
+Disallow: /passwordrecoverymail.php
+Disallow: /PHP_CODE_Instant_Panel.php
+Disallow: /search.phpUser-agent: *
+Disallow: /include/Disallow: /hotel/
+Disallow: /checkinn/
+Disallow: /hotels/

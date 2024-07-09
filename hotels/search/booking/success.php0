@@ -1,0 +1,223 @@
+<?php 
+//echo '<pre>hotel/search/booking/success.php-->'; print_r($_REQUEST); echo '</pre>'; die();
+$currentpage='hotel';
+	session_start();
+	include '../../../include/database/config.php';
+	include_once('../../../include/database/ipg-util.php');
+	error_reporting(0);
+	if(isset($_REQUEST['status'])&&isset($_REQUEST['status'])!='')
+	{
+		$checkif_exist = array();
+
+		$oid=$_REQUEST['oid'];
+		$checkif_exist=$database->query("select * from ps_ipg_transaction where oid='".$oid."'")->fetchAll();
+		if(empty($checkif_exist))
+		{
+			$ipd_id=$database->query("select id_ipg from ps_ipg_transaction order by id_ipg desc ")->fetchAll(PDO::FETCH_ASSOC);
+		$ipg_id=$ipd_id[0]['id_ipg']+1;
+			$nextBookingID = str_pad($ipg_id, 7, '0', STR_PAD_LEFT);
+	           
+	               $bt_reference = 'SN'.$nextBookingID;
+	               $values = array(
+	                    'txndate_processed' => (isset($_REQUEST['txndate_processed']) ? $_REQUEST['txndate_processed'] : ''),
+	                    'status' => (isset($_REQUEST['status']) ? $_REQUEST['status'] : ''),
+	                    'ccbin' => (isset($_REQUEST['ccbin']) ? $_REQUEST['ccbin'] : ''),
+	                    'bt_oid' => $bt_reference,
+	                    'timezone' => (isset($_REQUEST['timezone']) ? $_REQUEST['timezone'] : ''),
+	                    'fail_rc' => (isset($_REQUEST['fail_rc']) ? $_REQUEST['fail_rc'] : ''),
+	                    'oid' => (isset($_REQUEST['oid']) ? $_REQUEST['oid'] : ''),
+	                    'cccountry' => (isset($_REQUEST['cccountry']) ? $_REQUEST['cccountry'] : ''),
+	                    'expmonth' => (isset($_REQUEST['expmonth']) ? $_REQUEST['expmonth'] : ''),
+	                    'hash_algorithm' => (isset($_REQUEST['hash_algorithm']) ? $_REQUEST['hash_algorithm'] : ''),
+	                    'endpointTransactionId' => (isset($_REQUEST['endpointTransactionId']) ? $_REQUEST['endpointTransactionId'] : ''),
+	                    'currency' => (isset($_REQUEST['currency']) ? $_REQUEST['currency'] : ''),
+	                    'processor_response_code' => (isset($_REQUEST['processor_response_code']) ? $_REQUEST['processor_response_code'] : ''),
+	                    'chargetotal' => (isset($_REQUEST['chargetotal']) ? $_REQUEST['chargetotal'] : ''),
+	                    'terminal_id' => (isset($_REQUEST['terminal_id']) ? $_REQUEST['terminal_id'] : ''),
+	                    'approval_code' => (isset($_REQUEST['approval_code']) ? $_REQUEST['approval_code'] : ''),
+	                    'expyear' => (isset($_REQUEST['expyear']) ? $_REQUEST['expyear'] : ''),
+	                    'response_hash' => (isset($_REQUEST['response_hash']) ? $_REQUEST['response_hash'] : ''),
+	                    'response_code_3dsecure' => (isset($_REQUEST['response_code_3dsecure']) ? $_REQUEST['response_code_3dsecure'] : ''),
+	                    'installments_interest' => (isset($_REQUEST['installments_interest']) ? $_REQUEST['installments_interest'] : ''),
+	                    'bname' => (isset($_REQUEST['bname']) ? $_REQUEST['bname'] : ''),
+	                    'ccbrand' => (isset($_REQUEST['ccbrand']) ? $_REQUEST['ccbrand'] : ''),
+	                    'txntype' => (isset($_REQUEST['txntype']) ? $_REQUEST['txntype'] : ''),
+	                    'paymentMethod' => (isset($_REQUEST['paymentMethod']) ? $_REQUEST['paymentMethod'] : ''),
+	                    'txndatetime' => (isset($_REQUEST['txndatetime']) ? $_REQUEST['txndatetime'] : ''),
+	                    'cardnumber' => (isset($_REQUEST['cardnumber']) ? $_REQUEST['cardnumber'] : ''),
+	                    'ipgTransactionId' => (isset($_REQUEST['ipgTransactionId']) ? $_REQUEST['ipgTransactionId'] : ''),
+	                    'fail_reason' => (isset($_REQUEST['fail_reason']) ? $_REQUEST['fail_reason'] : ''),
+	                    'status' => (isset($_REQUEST['status']) ? $_REQUEST['status'] : ''),
+	                    'date_add' => date('Y-m-d H:i:s'),
+	                    'productinfo'=>"Hotel Booking",
+	                	'is_manual'=>0);
+	               $paymt=0;
+		               if($_REQUEST['status']=='APPROVED')
+		               {
+		               		$paymt=1;
+		               }
+		
+					$database->insert('ps_ipg_transaction', $values);
+					$getBookingDetails = $database->query("select hb.*,r.txtRoomName,p.txtEmail from ps_hotel_booking hb left join ps_property p on(p.id_property=hb.id_property) left join ps_room r on(hb.room_id=r.id_room) where hb.oid='".$_REQUEST['oid']."'")->fetchAll();
+					if(isset($getBookingDetails[0]) && !empty($getBookingDetails[0])){
+
+					$check_in = $getBookingDetails[0]['check_in'];
+					$check_out = $getBookingDetails[0]['check_out'];
+					$room_id = $getBookingDetails[0]['room_id'];
+					$room_count = $getBookingDetails[0]['room_count'];
+					$property_email = $getBookingDetails[0]['txtEmail'];
+					$id_property = $getBookingDetails[0]['id_property'];
+
+					if(!isset($checkif_exist[0][0]) || empty($checkif_exist[0][0])){
+						// update inventory
+						$begin 	= new DateTime(date('Y-m-d',strtotime($check_in)));
+						$end 	= new DateTime(date('Y-m-d',strtotime($check_out)));
+						$daterange = new DatePeriod($begin, new DateInterval('P1D'), $end);
+						foreach($daterange as $date){
+							$dateValue = $date->format("Y-m-d");
+							$year	= date('Y',strtotime($dateValue));
+							$month	= date('n',strtotime($dateValue));
+							$dateV	= date('j',strtotime($dateValue));
+							if($paymt)
+							{
+								$database->exec('update ps_room_available_inventory set `'.$dateV.'` = `'.$dateV.'` - '.$room_count.' where allot_avail=1 and id_room='.$room_id.' and year='.$year.' and month='.$month);
+								sendConfirmationMail($getBookingDetails[0]['customer_email'], 'Hotel Booking Confirmation', $getBookingDetails[0]['voucher_html'], $getBookingDetails[0]['booking_reference'].'.pdf', dirname(__FILE__).'/vouchers/');
+								//$property_email
+								sendConfirmationMail($property_email, 'Hotel Booking Confirmation', $getBookingDetails[0]['hotel_voucher_html'], $getBookingDetails[0]['booking_reference'].'_hotel.pdf', dirname(__FILE__).'/vouchers/');
+								if(isset($getBookingDetails[0]['sms_html']) && !empty($getBookingDetails[0]['sms_html']))
+									smsAPICall($getBookingDetails[0]['sms_html'],$getBookingDetails[0]['customer_contact']);
+								smsAPICall('Dear Hotelier, New Booking Arrived: Booking ID - '.$getBookingDetails[0]['hotelier_reference'].'. Please check your mail for complete details.',$getBookingDetails[0]['txtMobile']);
+							}
+							
+						}
+						$database->exec('update ps_hotel_booking set is_payment_success = \''.$paymt.'\', is_payment_transfer=\''.$paymt.'\' where booking_reference like \''.$getBookingDetails[0]['booking_reference'].'\' limit 1');
+						
+					}
+				}
+	    }
+	}
+
+
+	include '../../../include/header.php';
+?>
+<script src="<?php echo $root_dir; ?>hotel/js/jQuery.print.js" type="text/javascript"></script>
+<div class="container" style="padding:20px 30px;box-shadow: 1px 1px 4px #959494;margin:107px auto">
+    <div class="col-md-12 col-xs-12">
+    	<?php global $roomTypes; ?>
+		<?php if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'APPROVED'){ ?>
+        <h3>Booking Successful!</h3>
+        <hr>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="col-md-10 col-xs-10">
+			<div class="col-md-5 col-xs-5">Booking Reference</div>
+			<div class="col-md-1 col-xs-1">:</div>
+			<div class="col-md-6 col-xs-6"><?php echo $getBookingDetails[0]['booking_reference']; ?></div>
+		</div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="clearfix"></div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="col-md-10 col-xs-10">
+			<div class="col-md-5 col-xs-5">Primary Guest</div>
+			<div class="col-md-1 col-xs-1">:</div>
+			<div class="col-md-6 col-xs-6"><?php echo ucfirst($getBookingDetails[0]['customer_firstname']); ?></div>
+		</div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="clearfix"></div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="col-md-10 col-xs-10">
+			<div class="col-md-5 col-xs-5">Room Type,Category</div>
+			<div class="col-md-1 col-xs-1">:</div>
+			<div class="col-md-6 col-xs-6"><?php echo (isset($roomTypes[$getBookingDetails[0]['room_type_id']]) ? $roomTypes[$getBookingDetails[0]['room_type_id']] : '').(isset($getBookingDetails[0]['txtRoomName']) ? ', '.$getBookingDetails[0]['txtRoomName'] : ''); ?></div>
+		</div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="clearfix"></div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="col-md-10 col-xs-10">
+			<div class="col-md-5 col-xs-5">Room(s)</div>
+			<div class="col-md-1 col-xs-1">:</div>
+			<div class="col-md-6 col-xs-6"><?php echo $getBookingDetails[0]['guest_text']; ?></div>
+		</div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="clearfix"></div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="col-md-10 col-xs-10">
+			<div class="col-md-5 col-xs-5">Check-In</div>
+			<div class="col-md-1 col-xs-1">:</div>
+			<div class="col-md-6 col-xs-6"><?php echo date('d/m/Y',strtotime($getBookingDetails[0]['check_in'])); ?></div>
+		</div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="clearfix"></div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="col-md-10 col-xs-10">
+			<div class="col-md-5 col-xs-5">Check-Out</div>
+			<div class="col-md-1 col-xs-1">:</div>
+			<div class="col-md-6 col-xs-6"><?php echo date('d/m/Y',strtotime($getBookingDetails[0]['check_out'])); ?></div>
+		</div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="clearfix"></div>
+		<?php }else if(!isset($_REQUEST['status']) || $_REQUEST['status'] != 'APPROVED'){ ?>
+		<h3>Booking Unuccessful!</h3>
+        <hr>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="col-md-10 col-xs-10">
+			<p><?php echo $_REQUEST['fail_reason']; ?></p>
+		</div>
+		<div class="col-md-2 col-xs-2"></div>
+		<div class="clearfix"></div>
+		<?php }else{ ?>
+			<script type="text/javascript">
+				window.location = "<?php echo $root_dir.'hotel/'; ?>";
+			</script>
+		<?php } ?>
+    </div>
+    <div class="clearfix"></div>
+
+
+
+		<div class="col-md-12 col-xs-12" style="margin-top: 5%;">
+		<div class="col-md-4 col-xs-4"></div>
+		<div class="col-md-4 col-xs-4">
+			<div class="col-md-6 col-xs-6 center"><a href="<?php echo (isset($hotel_url) ? $hotel_url : '#'); ?>" style="color:red;font-size:11px;">Go back to Home!</a></div>
+			<?php if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'APPROVED'){ ?>
+			<div class="col-md-6 col-xs-6 center"><a href="javascript:void(0);" style="color:red;font-size:11px;" class="print-voucher">Print Voucher</a></div>
+			<?php } ?>
+		</div>
+		<div class="col-md-4 col-xs-4"></div>
+	</div>  
+
+	<div  class="col-sm-12 vals"  style="display: none;"  >
+		<div   id="print_full" ><?php echo $getBookingDetails[0]['voucher_html']; ?></div>
+	</div>
+
+	
+</div>
+
+<script>
+    $(document).ready(function(e) {
+        $(".print-voucher").click(function(e) {
+            $("#print_full").printThis({
+                debug: false, // * show the iframe for debugging
+                importCSS: true, // * import page CSS
+                printContainer: true, // *grab outer container as well as the contents of the selector
+                loadCSS: "../../css/style.css", //* path to additional css file
+                pageTitle: "", //*add title to print page
+                 removeInline: false, //*remove all inline styles from print elements
+                printDelay: 333, //*variable print delay
+                header: null //*prefix to html
+
+
+            });
+
+
+        });
+    });
+</script>
+
+<style>
+
+
+
+
+
+</style>
+<?php include('../../../include/footer.php'); ?>

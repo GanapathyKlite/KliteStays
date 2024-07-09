@@ -1,0 +1,54 @@
+
+	
+	
+	#div_top_hypers ul li a:hover{color: #FFF;
+border: 1px solid #DB0B0B;
+background-image: linear-gradient(to bottom, #DB0B0B 19%, #910005 56%);}
+
+.navbar-default{border:none; text-align:center;}
+
+	#div_top_hypers a{  font-size: 14px;
+	    padding: 0.5em 3em 0.5em 3em;
+	color:black;
+	border:1px solid rgb(236, 236, 236);
+	background-color:transparent;
+}
+#ul_top_hypers{border:none;background-color:transparent;background-image:none!important;width:100%;text-align:center;}
+
+
+/*header*/
+.emergency-grid ul {
+    padding: 0;
+    margin: 0 0 0 42px;
+}
+.nast li.dropdown{width:141px;padding:0 0;}
+
+
+.emergency-grid{float:right;
+padding:0 0;margin:0 0;}
+
+.navbar-nav > li > a {
+     padding-top: 1px;
+    padding-bottom: 14px;
+    line-height: 6px;
+}
+.navbar-nav > li > a.did{
+       padding: 0px 4px 5px 0px;
+  font-size:10px;
+}
+
+ li#Balance_amount b{} 
+
+
+li#Balance_amount {
+	text-align:left;
+    margin-left: 0px;
+	font-size:9px;
+}
+.emergency-grid ul li {
+    text-align:left;
+    font-size: 0.7em;
+    list-style: none;
+}
+.logo h1 img{width:150px;}
+

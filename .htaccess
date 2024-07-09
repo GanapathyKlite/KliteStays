@@ -1,0 +1,25 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1
+RewriteCond %{REQUEST_URI}  !\.(css|js|png|jpg|gif|php)$
+RewriteCond %{REQUEST_URI} !(search|css|js|images|maps|customerdashboard|cron|fonts|include|pdf|PHPMailer|slider|uploads) [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^((hotels-in-[A-Za-z0-9-]+))?/$ country.php?country=$1 [L,QSA]
+
+RewriteRule ^([^/]+)/((1-star-hotels|2-star-hotels|3-star-hotels|4-star-hotels|budget-3-star-hotels|5-star-hotels|cheap-3-star-hotels|budget-4-star-hotels|cheap-4-star-hotels)-in-[A-Za-z0-9]+.html)?$ hotels/index.php?city=$1&star=$3 [L,QSA]
+
+RewriteRule ^([^/]+)/((resorts|beach-resorts|residency|service-apartment|apartment|villa|homestays|dormitory|hotels|budget-hotels|guest-house|best-deals)-in-[A-Za-z0-9]+.html)?$ hotels/index.php?city=$1&hotel_type=$3 [L,QSA]
+
+RewriteRule ^([^/]+)/((1-star-hotels|2-star-hotels|3-star-hotels|4-star-hotels|5-star-hotels)-near-[A-Za-z0-9\-]+-in-[A-Za-z0-9\-]+.html)?$ hotels/index.php?city=$1&s_l_d=$2 [L,QSA]
+
+RewriteRule ^([^/]+)/((resorts|beach-resorts|residency|service-apartment|apartment|villa|homestays|dormitory|budget-hotels|best-deals|guest-house|hotels)-near-[A-Za-z0-9\-]+-in-[A-Za-z0-9\-]+.html)?$ hotels/index.php?city=$1&h_l_d=$2 [L,QSA]
+
+RewriteRule ^([^/]+)/((resorts|beach-resorts|residency|service-apartment|apartment|villa|homestays|dormitory|budget-hotel|best-deals|guest-house|hotel)_[A-Za-z0-9\-]+-in-[A-Za-z0-9]+.html)?$ hotels/search/book.php?city=$1&property_name=$2 [L,QSA]
+
+RewriteRule ^([^/]+)/((resorts|beach-resorts|residency|service-apartment|apartment|villa|homestays|dormitory|budget-hotel|best-deals|guest-house|hotel)_[A-Za-z0-9.&\-]+-in-[A-Za-z0-9]+)/([A-Za-z0-9\-]+.html)?$ hotels/search/booking.php?city=$1&property_name=$2&keyword=$4 [L,QSA]
+
+RewriteRule ^([^/]+)/([A-Za-z0-9\-]+.html)?$ hotels/find.php?city=$1&from_seo=1&keyword=$2 [L,QSA]

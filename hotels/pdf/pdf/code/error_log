@@ -1,0 +1,3 @@
+[30-Jul-2016 16:12:13 Asia/Calcutta] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 72 bytes) in /home/pondicsu/public_html/pdf1/tcpdf.php on line 16506
+[30-Jul-2016 16:31:51 Asia/Calcutta] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 72 bytes) in /home/pondicsu/public_html/pdf1/tcpdf.php on line 20252
+[30-Jul-2016 16:46:03 Asia/Calcutta] PHP Fatal error:  Maximum execution time of 300 seconds exceeded in /home/pondicsu/public_html/pdf1/tcpdf.php on line 18278

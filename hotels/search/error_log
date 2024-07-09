@@ -1,0 +1,108 @@
+[30-Sep-2017 12:51:19 UTC] PHP Fatal error:  Call to a member function fetchAll() on boolean in /home/buddiestours/public_html/hotel/search/book.php on line 331
+[03-Oct-2017 05:36:15 UTC] PHP Notice:  Undefined index: child_age_jsonArr in /home/buddiestours/public_html/hotel/search/index-ajax.php on line 10
+[03-Oct-2017 05:36:15 UTC] PHP Fatal error:  Call to a member function fetchAll() on boolean in /home/buddiestours/public_html/hotel/search/index-ajax.php on line 101
+[11-Nov-2017 05:27:55 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/b2chotel/public_html/hotels/include/database/medoo.php:132
+Stack trace:
+#0 /home/b2chotel/public_html/hotels/include/database/config.php(7): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#2 {main}
+  thrown in /home/b2chotel/public_html/hotels/include/database/medoo.php on line 132
+[11-Nov-2017 05:28:04 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/b2chotel/public_html/hotels/include/database/medoo.php:132
+Stack trace:
+#0 /home/b2chotel/public_html/hotels/include/database/config.php(7): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#2 {main}
+  thrown in /home/b2chotel/public_html/hotels/include/database/medoo.php on line 132
+[11-Nov-2017 06:09:01 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/b2chotel/public_html/hotels/include/database/medoo.php:132
+Stack trace:
+#0 /home/b2chotel/public_html/hotels/include/database/config.php(7): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#2 {main}
+  thrown in /home/b2chotel/public_html/hotels/include/database/medoo.php on line 132
+[11-Nov-2017 06:18:04 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/b2chotel/public_html/hotels/include/database/medoo.php:132
+Stack trace:
+#0 /home/b2chotel/public_html/hotels/include/database/config.php(7): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#2 {main}
+  thrown in /home/b2chotel/public_html/hotels/include/database/medoo.php on line 132
+[11-Nov-2017 06:18:53 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/b2chotel/public_html/hotels/include/database/medoo.php:132
+Stack trace:
+#0 /home/b2chotel/public_html/hotels/include/database/config.php(7): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#2 {main}
+  thrown in /home/b2chotel/public_html/hotels/include/database/medoo.php on line 132
+[11-Nov-2017 06:21:09 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/b2chotel/public_html/hotels/include/database/medoo.php:132
+Stack trace:
+#0 /home/b2chotel/public_html/hotels/include/database/config.php(7): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#2 {main}
+  thrown in /home/b2chotel/public_html/hotels/include/database/medoo.php on line 132
+[11-Nov-2017 06:21:10 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/b2chotel/public_html/hotels/include/database/medoo.php:132
+Stack trace:
+#0 /home/b2chotel/public_html/hotels/include/database/config.php(7): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#2 {main}
+  thrown in /home/b2chotel/public_html/hotels/include/database/medoo.php on line 132
+[11-Nov-2017 06:21:18 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/b2chotel/public_html/hotels/include/database/medoo.php:132
+Stack trace:
+#0 /home/b2chotel/public_html/hotels/include/database/config.php(7): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#2 {main}
+  thrown in /home/b2chotel/public_html/hotels/include/database/medoo.php on line 132
+[11-Nov-2017 06:21:27 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/b2chotel/public_html/hotels/include/database/medoo.php:132
+Stack trace:
+#0 /home/b2chotel/public_html/hotels/include/database/config.php(7): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#2 {main}
+  thrown in /home/b2chotel/public_html/hotels/include/database/medoo.php on line 132
+[11-Nov-2017 06:31:21 UTC] PHP Fatal error:  Cannot redeclare class medoo in /home/b2chotel/public_html/include/database/medoo.php on line 12
+[11-Nov-2017 06:31:22 UTC] PHP Fatal error:  Cannot redeclare class medoo in /home/b2chotel/public_html/include/database/medoo.php on line 12
+[11-Nov-2017 06:31:23 UTC] PHP Fatal error:  Cannot redeclare class medoo in /home/b2chotel/public_html/include/database/medoo.php on line 12
+[11-Nov-2017 06:31:28 UTC] PHP Fatal error:  Cannot redeclare class medoo in /home/b2chotel/public_html/include/database/medoo.php on line 12
+[11-Nov-2017 06:31:29 UTC] PHP Fatal error:  Cannot redeclare class medoo in /home/b2chotel/public_html/include/database/medoo.php on line 12
+[11-Nov-2017 09:02:21 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1044] Access denied for user 'hotelbud_tech'@'localhost' to database 'staysinn'' in /home/b2chotel/public_html/include/database/medoo.php:133
+Stack trace:
+#0 /home/b2chotel/public_html/include/database/config.php(9): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/include/header.php(26): include('/home/b2chotel/...')
+#2 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#3 {main}
+  thrown in /home/b2chotel/public_html/include/database/medoo.php on line 133
+[11-Nov-2017 09:02:22 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1044] Access denied for user 'hotelbud_tech'@'localhost' to database 'staysinn'' in /home/b2chotel/public_html/include/database/medoo.php:133
+Stack trace:
+#0 /home/b2chotel/public_html/include/database/config.php(9): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/include/header.php(26): include('/home/b2chotel/...')
+#2 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#3 {main}
+  thrown in /home/b2chotel/public_html/include/database/medoo.php on line 133
+[11-Nov-2017 09:02:22 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'SQLSTATE[HY000] [1044] Access denied for user 'hotelbud_tech'@'localhost' to database 'staysinn'' in /home/b2chotel/public_html/include/database/medoo.php:133
+Stack trace:
+#0 /home/b2chotel/public_html/include/database/config.php(9): medoo->__construct('staysinn')
+#1 /home/b2chotel/public_html/include/header.php(26): include('/home/b2chotel/...')
+#2 /home/b2chotel/public_html/hotels/search/index.php(5): include('/home/b2chotel/...')
+#3 {main}
+  thrown in /home/b2chotel/public_html/include/database/medoo.php on line 133
+[11-Nov-2017 09:05:10 UTC] PHP Notice:  Undefined variable: http://hotel.staysinn.com/img/uploads/ in /home/b2chotel/public_html/include/database/config.php on line 17
+[13-Nov-2017 10:43:38 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting '(' in /home/b2chotel/public_html/hotels/search/book.php on line 313
+[13-Nov-2017 10:44:51 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting '(' in /home/b2chotel/public_html/hotels/search/book.php on line 313
+[13-Nov-2017 10:44:53 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/b2chotel/public_html/hotels/search/book.php on line 877
+[13-Nov-2017 13:01:52 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/b2chotel/public_html/hotels/search/book.php on line 878
+[16-Dec-2017 12:54:09 UTC] PHP Fatal error:  Call to a member function fetchAll() on boolean in /home/b2chotel/public_html/hotels/search/index-ajax.php on line 108
+[16-Dec-2017 12:54:18 UTC] PHP Fatal error:  Call to a member function fetchAll() on boolean in /home/b2chotel/public_html/hotels/search/index-ajax.php on line 108
+[16-Dec-2017 12:55:26 UTC] PHP Fatal error:  Call to a member function fetchAll() on boolean in /home/b2chotel/public_html/hotels/search/index-ajax.php on line 109
+[02-Jan-2018 12:52:29 UTC] PHP Notice:  Undefined variable: locations in /home/b2chotel/public_html/hotels/search/index.php on line 85
+[02-Jan-2018 12:52:29 UTC] PHP Fatal error:  Call to a member function fetchAll() on boolean in /home/b2chotel/public_html/hotels/search/index.php on line 90
+[12-Feb-2018 07:51:31 UTC] PHP Warning:  include(include/header.php): failed to open stream: No such file or directory in /home/b2chotel/public_html/hotels/search/index.php on line 3
+[12-Feb-2018 07:51:31 UTC] PHP Warning:  include(): Failed opening 'include/header.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/b2chotel/public_html/hotels/search/index.php on line 3
+[12-Feb-2018 07:51:31 UTC] PHP Fatal error:  Call to a member function query() on null in /home/b2chotel/public_html/hotels/search/index.php on line 7
+[12-Feb-2018 07:51:32 UTC] PHP Warning:  include(include/header.php): failed to open stream: No such file or directory in /home/b2chotel/public_html/hotels/search/index.php on line 3
+[12-Feb-2018 07:51:32 UTC] PHP Warning:  include(): Failed opening 'include/header.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/b2chotel/public_html/hotels/search/index.php on line 3
+[12-Feb-2018 07:51:32 UTC] PHP Fatal error:  Call to a member function query() on null in /home/b2chotel/public_html/hotels/search/index.php on line 7
+[12-Feb-2018 07:51:32 UTC] PHP Warning:  include(include/header.php): failed to open stream: No such file or directory in /home/b2chotel/public_html/hotels/search/index.php on line 3
+[12-Feb-2018 07:51:32 UTC] PHP Warning:  include(): Failed opening 'include/header.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/b2chotel/public_html/hotels/search/index.php on line 3
+[12-Feb-2018 07:51:32 UTC] PHP Fatal error:  Call to a member function query() on null in /home/b2chotel/public_html/hotels/search/index.php on line 7
+[12-Feb-2018 07:51:33 UTC] PHP Warning:  include(include/header.php): failed to open stream: No such file or directory in /home/b2chotel/public_html/hotels/search/index.php on line 3
+[12-Feb-2018 07:51:33 UTC] PHP Warning:  include(): Failed opening 'include/header.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/b2chotel/public_html/hotels/search/index.php on line 3
+[12-Feb-2018 07:51:33 UTC] PHP Fatal error:  Call to a member function query() on null in /home/b2chotel/public_html/hotels/search/index.php on line 7
+[12-Feb-2018 07:52:14 UTC] PHP Warning:  include(include/header.php): failed to open stream: No such file or directory in /home/b2chotel/public_html/hotels/search/index.php on line 3
+[12-Feb-2018 07:52:14 UTC] PHP Warning:  include(): Failed opening 'include/header.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/b2chotel/public_html/hotels/search/index.php on line 3
+[12-Feb-2018 07:52:14 UTC] PHP Fatal error:  Call to a member function query() on null in /home/b2chotel/public_html/hotels/search/index.php on line 7

@@ -1,0 +1,2 @@
+[15-May-2024 11:33:13 Asia/Kolkata] PHP Warning:  Undefined array key "receiptnos" in /home1/buddinfi/yastours_client/razorpay_payment/entryRazorPayment.php on line 67
+[15-May-2024 11:33:13 Asia/Kolkata] PHP Deprecated:  PDO::quote(): Passing null to parameter #1 ($string) of type string is deprecated in /home1/buddinfi/yastours_client/include/database/medoo.php on line 154

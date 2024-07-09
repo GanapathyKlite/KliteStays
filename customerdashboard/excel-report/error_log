@@ -1,0 +1,127 @@
+[18-Jul-2017 15:18:51 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Maximum 31 characters allowed in sheet title.' in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php:472
+Stack trace:
+#0 /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php(841): PHPExcel_Worksheet::_checkSheetTitle('BOOKING REPORT ...')
+#1 /home/buddiest/public_html/agent/agentdashboard/excel-report/viewBooking.php(80): PHPExcel_Worksheet->setTitle('BOOKING REPORT ...')
+#2 {main}
+  thrown in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php on line 472
+[18-Jul-2017 15:18:53 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Maximum 31 characters allowed in sheet title.' in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php:472
+Stack trace:
+#0 /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php(841): PHPExcel_Worksheet::_checkSheetTitle('BOOKING REPORT ...')
+#1 /home/buddiest/public_html/agent/agentdashboard/excel-report/viewBooking.php(80): PHPExcel_Worksheet->setTitle('BOOKING REPORT ...')
+#2 {main}
+  thrown in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php on line 472
+[18-Jul-2017 15:18:55 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Maximum 31 characters allowed in sheet title.' in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php:472
+Stack trace:
+#0 /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php(841): PHPExcel_Worksheet::_checkSheetTitle('BOOKING REPORT ...')
+#1 /home/buddiest/public_html/agent/agentdashboard/excel-report/viewBooking.php(80): PHPExcel_Worksheet->setTitle('BOOKING REPORT ...')
+#2 {main}
+  thrown in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php on line 472
+[18-Jul-2017 15:18:57 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Maximum 31 characters allowed in sheet title.' in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php:472
+Stack trace:
+#0 /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php(841): PHPExcel_Worksheet::_checkSheetTitle('BOOKING REPORT ...')
+#1 /home/buddiest/public_html/agent/agentdashboard/excel-report/viewBooking.php(80): PHPExcel_Worksheet->setTitle('BOOKING REPORT ...')
+#2 {main}
+  thrown in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php on line 472
+[27-Jul-2017 16:37:46 Asia/Kolkata] PHP Notice:  Undefined variable: _SESSION in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 59
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:11 Asia/Kolkata] PHP Notice:  Undefined variable: sliderslist in /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php on line 83
+[27-Jul-2017 16:48:52 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Maximum 31 characters allowed in sheet title.' in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php:472
+Stack trace:
+#0 /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php(841): PHPExcel_Worksheet::_checkSheetTitle('TRANSACTION REP...')
+#1 /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php(142): PHPExcel_Worksheet->setTitle('TRANSACTION REP...')
+#2 {main}
+  thrown in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php on line 472
+[27-Jul-2017 16:55:38 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Maximum 31 characters allowed in sheet title.' in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php:472
+Stack trace:
+#0 /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php(841): PHPExcel_Worksheet::_checkSheetTitle('TRANSACTION REP...')
+#1 /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php(140): PHPExcel_Worksheet->setTitle('TRANSACTION REP...')
+#2 {main}
+  thrown in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php on line 472
+[27-Jul-2017 16:56:36 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Maximum 31 characters allowed in sheet title.' in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php:472
+Stack trace:
+#0 /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php(841): PHPExcel_Worksheet::_checkSheetTitle('TRANSACTION REP...')
+#1 /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php(140): PHPExcel_Worksheet->setTitle('TRANSACTION REP...')
+#2 {main}
+  thrown in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php on line 472
+[27-Jul-2017 16:58:06 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Maximum 31 characters allowed in sheet title.' in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php:472
+Stack trace:
+#0 /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php(841): PHPExcel_Worksheet::_checkSheetTitle('TRANSACTION REP...')
+#1 /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php(140): PHPExcel_Worksheet->setTitle('TRANSACTION REP...')
+#2 {main}
+  thrown in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php on line 472
+[27-Jul-2017 17:01:29 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Maximum 31 characters allowed in sheet title.' in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php:472
+Stack trace:
+#0 /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php(841): PHPExcel_Worksheet::_checkSheetTitle('TRANSACTION REP...')
+#1 /home/buddiest/public_html/agent/agentdashboard/excel-report/bookingReport.php(140): PHPExcel_Worksheet->setTitle('TRANSACTION REP...')
+#2 {main}
+  thrown in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php on line 472
+[27-Jul-2017 12:32:54 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/buddiest/public_html/agent/agentdashboard/excel-report/paymentReport.php on line 87
+[27-Jul-2017 12:32:57 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/buddiest/public_html/agent/agentdashboard/excel-report/paymentReport.php on line 87
+[27-Jul-2017 12:33:05 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/buddiest/public_html/agent/agentdashboard/excel-report/paymentReport.php on line 87
+[27-Jul-2017 12:33:25 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/buddiest/public_html/agent/agentdashboard/excel-report/paymentReport.php on line 87
+[27-Jul-2017 12:33:52 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/buddiest/public_html/agent/agentdashboard/excel-report/paymentReport.php on line 87
+[27-Jul-2017 12:34:08 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/buddiest/public_html/agent/agentdashboard/excel-report/paymentReport.php on line 87
+[27-Jul-2017 12:34:30 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/buddiest/public_html/agent/agentdashboard/excel-report/paymentReport.php on line 87
+[27-Jul-2017 12:34:50 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/buddiest/public_html/agent/agentdashboard/excel-report/paymentReport.php on line 87
+[27-Jul-2017 12:34:59 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/buddiest/public_html/agent/agentdashboard/excel-report/paymentReport.php on line 87
+[27-Jul-2017 18:09:09 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Maximum 31 characters allowed in sheet title.' in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php:472
+Stack trace:
+#0 /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php(841): PHPExcel_Worksheet::_checkSheetTitle('TRANSACTION REP...')
+#1 /home/buddiest/public_html/agent/agentdashboard/excel-report/paymentReport.php(151): PHPExcel_Worksheet->setTitle('TRANSACTION REP...')
+#2 {main}
+  thrown in /home/buddiest/public_html/agent/agentdashboard/excel-report/PHPExcel/Classes/PHPExcel/Worksheet.php on line 472
